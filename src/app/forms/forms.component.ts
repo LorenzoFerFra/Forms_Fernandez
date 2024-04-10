@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,} from '@angular/forms';
 
 @Component({
   selector: 'app-forms',
@@ -7,5 +11,12 @@ import { Component } from '@angular/core';
 })
 
 export class FormsComponent {
-
+  formulario = this.fb.group({
+    name: this.fb.control(''),
+    lastName: this.fb.control(''),
+    email: this.fb.control(''),
+  })
+  constructor(private fb: FormBuilder ){
+  }
+  
 }
