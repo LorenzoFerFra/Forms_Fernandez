@@ -12,11 +12,15 @@ import {  FormBuilder,
 
 export class FormsComponent {
   formulario = this.fb.group({
-    name: this.fb.control(''),
-    lastName: this.fb.control(''),
-    email: this.fb.control(''),
+    name: [''],
+    lastName: ['', Validators.name],
+    email: this.fb.control('', Validators.email),
   })
   constructor(private fb: FormBuilder ){
+    console.log("constructor")
   }
-  
+  onSubmit(): void {
+    console.log("probando 123aasdASDASDSA")
+    alert('Usuario creado' + JSON.stringify(this.formulario.value));
+  }
 }
