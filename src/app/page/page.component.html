@@ -1,0 +1,22 @@
+<button class="mostrarListadoB"  (click)="mostrarListado = !mostrarListado"> 
+    Mostrar Listado </button>
+  <ul *ngIf="mostrarListado">
+           @for (student of students; track $index) {
+            <li [ngClass]="{
+              mal: !student.aprobado,
+              bien: student.aprobado
+            }"
+              [ngStyle]="{
+                  'text-decoration': aprobado ? 'underline' : 'unset',
+                  'font-weight': aprobado ? 700 : 400
+                }">{{$index}}{{student.nombre}}
+                <div [ngSwitch]="student.aprobado">
+                  <button *ngSwitchCase="true" 
+                 (click)="student.aprobado = !student.aprobado">Desaprobar </button>
+                 <button *ngSwitchCase="false" 
+                 (click)="student.aprobado = !student.aprobado">Aprobar</button>
+                </div>
+                </li>
+           }
+  </ul>
+  
